@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+            <div id="bloc_page">
+            <header>
+                <div id="titre_principal">
+                    <div id="logo">
+                        <img src="../static/img/epitech.png" alt="Logo de l'EPYTODO" />
+                        <h1>EPYTODO</h1>
+                    </div>
+                    <h2>Outil de planification de projet</h2>
+                </div>
+                
+                <nav>
+                    <ul>
+                        <li><a href="http://127.0.0.1:5000/">Home</a></li>
+                        <li><a href={{ menu_url }}>{{ menu }}</a></li>
+                    </ul>
+                </nav>
+            </header>
+            
+            <section>
+                <article>
+                    <h1>{{ myContent }}</h1>
+                    <form method="post" action="">
+                        <p>
+                            <label for="username">Username :</label>
+                            <input type="text" name="username" id="username" />
+
+                            <br />
+                            <label for="password">Password :</label>
+                            <input type="password" name="password" id="password" />
+                        </p>
+                    </form>
+                </article>
+            </section>
+            
+            <footer>
+                <div id="my_footer">
+                    <h1>By Loïc d'Eyssautier, sevan sarikaya et kevin roland</h1>
+                </div>
+            </footer>
+        </div>
+</body>
+
+</html>
