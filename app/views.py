@@ -1,5 +1,7 @@
 from app import app
-from flask import render_template
+from flask import Flask, render_template, flash, request
+from app.forms import LoginForm, RegisterForm
+from wtforms import Form
 
 @app.route('/', methods=['GET'])
 def route_index():
@@ -12,20 +14,44 @@ def route_index():
 
 @app.route('/register', methods=['GET', 'POST'])
 def route_register():
+    form = RegisterForm(request.form)
+    print(form.errors)
+    if request.method == 'POST':
+        login = request.form['login']
+        key = request.form['key']
+        print(login)
+        print(key)
+    if form.validate():
+        flash('Hello ' + login)
+    else:
+        flash('All the form fields are required. ')
     return render_template("register.html",
                            title="EPYTODO register",
                            menu_url="http://127.0.0.1:5000/signin",
                            menu="signin",
-                           myContent="register a new user")
+                           myContent="register a new user",
+                           form=form)
 
 
 @app.route('/signin', methods=['GET', 'POST'])
 def route_signin():
+    form = LoginForm(request.form)
+    print(form.errors)
+    if request.method == 'POST':
+        username=request.form['username']
+        password=request.form['password']
+        print(username)
+        print(password)
+    if form.validate():
+        flash('Hello ' + username)
+    else:
+        flash('All the form fields are required. ')
     return render_template("signin.html",
                            title="EPYTODO signout",
                            menu_url="http://127.0.0.1:5000/register",
                            menu="register",
-                           myContent="connect user")
+                           myContent="connect user",
+                           form=form)
 
 
 @app.route('/signout', methods=['GET', 'POST'])

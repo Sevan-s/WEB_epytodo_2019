@@ -30,16 +30,14 @@
             <section>
                 <article>
                     <h1>{{ myContent }}</h1>
-                    <form method="post" action="">
-                        <p>
-                            <label for="username">Username :</label>
-                            <input type="text" name="username" id="username" />
-
-                            <br />
-                            <label for="password">Password :</label>
-                            <input type="password" name="password" id="password" />
-                        </p>
-                    </form>
+                   <form action="" method="post">
+                       <div class="input text">
+                           {{ form.login.label }} {{ form.login }}</div>
+                       <div class="input text">
+                           {{ form.key.label }} {{ form.key }}</div>
+                       <div class="input submit">
+                           <input type="submit" value="Submit"></div>
+                   </form>
                 </article>
             </section>
             
